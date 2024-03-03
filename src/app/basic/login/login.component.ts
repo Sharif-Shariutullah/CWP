@@ -27,7 +27,7 @@ export class LoginComponent {
   }
 
   togglePasswordvisibility() {
-    this.hidePassword = this.hidePassword;
+    this.hidePassword = !this.hidePassword;
   }
   onSubmit(): void {
     const username = this.loginForm.get('email').value;

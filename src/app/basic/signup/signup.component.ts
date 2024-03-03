@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/service/auth/auth.service';
 })
 export class SignupComponent {
   togglePasswordVisibility() {
-    throw new Error('Method not implemented.');
+    this.hidePassword = !this.hidePassword;
   }
   signupForm!: FormGroup;
   hidePassword = true;
