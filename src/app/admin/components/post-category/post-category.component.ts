@@ -21,8 +21,8 @@ export class PostCategoryComponent {
 
   ngOnInit(): void {
     this.categoryForm = this.fb.group({
-      name: [null, [Validators.required]],
-      description: [null, [Validators.required]],
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
     });
   }
 
@@ -49,6 +49,9 @@ export class PostCategoryComponent {
   // }
 
   addCategory(): void {
+
+    console.log(this.categoryForm.value);
+    
     if (this.categoryForm.valid) {
       this.adminService.addCategory(this.categoryForm.value).subscribe((res)=> {
           if (res.id != null) {

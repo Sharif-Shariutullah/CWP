@@ -15,15 +15,56 @@ export class AdminService {
 
 
   addCategory(categoryDto: any): Observable<any> {
-    return this.http.post(BASIC_URL + 'api/admin/category', categoryDto, {
+    console.log('-------',categoryDto);
+    
+    return this.http.post(BASIC_URL + 'api/admin/category?name='+ categoryDto.name+"&description=" + categoryDto.description,{})
+  }
+
+
+
+ getAllCategories(): Observable<any> {
+    return this.http.get(BASIC_URL + 'api/admin', {
       headers: this.createAuthorizationHeader(),
     })
   }
 
+
+  addProduct(productDto: any): Observable<any> {
+    return this.http.post(BASIC_URL + 'api/admin/products', productDto, {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+
+  getAllProducts(): Observable<any> {
+    return this.http.get(BASIC_URL + '/api/admin/products', {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+
+  getAllProductsByName(name : any): Observable<any> {
+    return this.http.get(BASIC_URL + '/api/admin/products/search/$(name)', {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+
+
+
+
+deleteProduct(productId: any): Observable<any> {
+    return this.http.post(BASIC_URL + `api/admin/product/${productId}`,  {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+
   private createAuthorizationHeader(): HttpHeaders {
     return new HttpHeaders().set(
-      'Authorization', 'Bearer' + UserstorageService.getToken()
+      'Authorization', 'Bearer ' + UserstorageService.getToken()
     )
   }
+
 
 }

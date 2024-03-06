@@ -1,5 +1,5 @@
 <div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn">
-  <mat-toolbar color="warn" class="navbar">
+  <mat-toolbar color="accent" class="navbar">
     <span class="navbar-brand" mat-button routerLink="/homePage" routerLinkActive="active">E-Commerce</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/order" routerLinkActive="active">
@@ -25,7 +25,7 @@
     <button mat-button routerLink="/admin/dashboard" routerLinkActive="active"> Dashboard </button>
     <button mat-button routerLink="/admin/analytics" routerLinkActive="active"> Analytics </button>
     <button mat-button routerLink="/admin/category" routerLinkActive="active"> Category </button>
-    <button mat-button routerLink="/admin/porduct" routerLinkActive="active"> Product </button>
+    <button mat-button routerLink="/admin/product" routerLinkActive="active"> Product </button>
     <button mat-button routerLink="/admin/orders" routerLinkActive="active"> Orders </button>
     <button mat-button routerLink="/admin/post-coupon" routerLinkActive="active"> Post Coupon </button>
     <button mat-button routerLinkActive="active" (click)="logout()"> Logout </button>
